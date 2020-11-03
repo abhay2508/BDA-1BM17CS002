@@ -1,0 +1,9 @@
+use test
+mongoimport -d test -c data --type csv --headerline --file "C:\Users\hriti\OneDrive\Desktop\College\DSR Lab\bank-data.csv"
+db.data.find()
+db.data.aggregate([
+    { $group : { _id: null, sum: {$sum:"$age"} } }
+])
+db.MongoDBHandsOn.aggregate([
+    { $group : { _id: "Avg of Age", avg: {$avg:"$age"} } }
+])
